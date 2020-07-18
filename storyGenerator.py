@@ -27,8 +27,8 @@ def writeStory(name, age, gender, grade, city, hobby, book, friendName, brotherO
 
 
 if __name__ == '__main__':
-    story = writeStory('Aryan', '17', 'young man', 
-                       '10th', 'London', 'Karate', 
-                       'Detective Stories', 'Bhootnath', 'sister')
+    story = writeStory('Nandini', '10', 'girl', 
+                       '5th', 'Edison', 'Fashion', 
+                       'The Famous Five', 'Sami', 'brother')
     #story = writeStory('Mayur', '5', 'boy', 'KG', 'Edison', 'blocks', 'KG Learning', 'Daksh', 'Sister')
     print(story)
