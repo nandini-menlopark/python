@@ -3,6 +3,7 @@
 ## a cherry letter
 
 import numpy as np
+from termcolor import colored 
 
 class Cake(object):
     def __init__(self, layers, material, cherryletter):
@@ -11,11 +12,12 @@ class Cake(object):
         self.cherryletter = cherryletter
     
     def getLayer(self, layer):
-        return(f"""{''.join(np.repeat(' ', self.layers - layer))}""" + 
-               f"""[{''.join(np.repeat(self.material, 2*layer - 1))}]""")
+        return(colored(f"""{''.join(np.repeat(' ', self.layers - layer))}""" + 
+               f"""[{''.join(np.repeat(self.material, 2*layer - 1))}]""", 'cyan'))
 
     def getCherry(self):
-        return(f"""{''.join(np.repeat(' ', self.layers))}""" + f"""{self.cherryletter}""")
+        return(colored(f"""{''.join(np.repeat(' ', self.layers))}""" + 
+                       f"""{colored(self.cherryletter)}""", 'yellow'))
 
 
     def getCake(self):
@@ -30,3 +32,6 @@ class Cake(object):
 cakeFactory = Cake(layers = 10, material = "w", cherryletter = 'V')
 
 print(cakeFactory.getCake())
+
+
+print(colored('Nandini', 'yellow'))
