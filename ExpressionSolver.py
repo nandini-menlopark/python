@@ -42,20 +42,21 @@ class ExpressionSolver(object):
         if(self.op == '<'):
             return(self.a < self.b)
         
-        if(self.op == '^'):
+        if(self.op == '**'):
             return(self.a ** self.b)
 
-        if(self.op == 'e'):
+        if(self.op == '=='):
             return(self.a == self.b)
         
-        if(self.op == 'n'):
+        if(self.op == '!='):
             return(self.a != self.b)
         
-        if(self.op == 'G'):
+        if(self.op == '>='):
             return(self.a >= self.b)
         
-        if(self.op == 'L'):
+        if(self.op == '<='):
             return(self.a <= self.b)
+        
         
     def solveExpression(self, expr):
         self.expr = expr.replace(' ', '')
@@ -63,6 +64,8 @@ class ExpressionSolver(object):
         while(True):
             if self.expr[i].isnumeric() == False and self.expr[i] != '.':
                 self.op = self.expr[i]
+                if(self.expr[i+1].isnumeric() == False):
+                    self.op = self.expr[(i):(i+2)]
                 break
             i = i + 1
         mysplit = self.expr.split(self.op)
@@ -75,7 +78,7 @@ if __name__ == '__main__':
     
     myExprSolver = ExpressionSolver()
     
-    expr = '500 L 200'
+    expr = '500 == 200'
     
     print(f'Answer is {myExprSolver.solveExpression(expr)}')
     
